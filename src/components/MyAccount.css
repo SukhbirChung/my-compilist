@@ -1,0 +1,134 @@
+.form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(#d0d6d9, #b1b4ba);
+    color: #d9e2f1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    position: relative;
+    width: 90%;
+    max-width: 650px;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, #253c3c, #1d4949);
+    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
+}
+
+.form-control-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-control label {
+    display: block;
+    color: #9bafaf;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-control input {
+    display: block;
+    width: 100%;
+    max-width: 15rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #758a8a;
+    background-color: #869999;
+    color: #142020;
+}
+
+.password-form-control{
+    position: relative;
+}
+
+.password-form-control button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+    .form-actions button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        background-color: #147b73;
+        color: #d9e2f1;
+    }
+
+        .form-actions button:hover, 
+        .form-actions button:focus {
+            background-color: #319890;
+        }
+
+.form-link-container {
+    color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-link{
+    color: #000;
+}
+
+.error-message {
+    position: fixed;
+    color: #ffca99;
+    display: flex;
+    align-items: center;
+}
+
+.error-message img{
+    margin-right: 0.25rem;
+}
+
+.form-submission-error {
+    position: absolute;
+    top: -6rem;
+    left: 0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #9c183d;
+}
+
+.loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+    .loader img {
+        animation: 1s linear infinite load;
+    }
+
+@keyframes load{
+    to{
+        transform: rotate(360deg);
+    }
+}

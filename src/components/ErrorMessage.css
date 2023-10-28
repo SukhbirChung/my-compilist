@@ -1,0 +1,20 @@
+.errorMessage{
+    height: 100vh;
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errorMessage-link {
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    box-shadow: inset 10px 10px 20px 0 rgba(0,0,0,0.5), inset -10px -10px 20px 0 rgba(0,0,0,0.5);
+}
+
+    .errorMessage-link:hover {
+        box-shadow: inset 10px 10px 20px 0 rgba(0,0,0,0.5), inset -10px -10px 20px 0 rgba(0,0,0,0.5), 3px 10px 10px 0 rgba(0,0,0,0.5);
+        transform: translate(0, -3px);
+        transition-duration: 0.3s;
+    }

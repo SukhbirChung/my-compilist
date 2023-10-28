@@ -1,8 +1,119 @@
-*{
+:root {
+    --primary-color: #fc663d;
+}
+
+* {
     box-sizing: border-box;
 }
 
 html {
-    font-family: 'Lato', sans-serif;
-    /*font-family: 'Pacifico', cursive;*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 1.5;
+}
+
+button{
+    cursor: pointer;
+}
+
+#root {
+    padding: 1rem 1rem 0;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.font-size-small {
+    font-size: 0.9rem;
+}
+
+.font-size-medium {
+    font-size: 1.25rem;
+}
+
+.font-size-large {
+    font-size: 1.5rem;
+}
+
+.font-size-extra-large {
+    font-size: 1.75rem;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.link{
+    text-decoration: none;
+    color: #fff;
+}
+
+.color-primary{
+    color: var(--primary-color);
+}
+
+.margin-top-extra-small {
+    margin-top: 0.25rem;
+}
+
+.margin-top-small {
+    margin-top: 0.5rem;
+}
+
+.margin-top-medium {
+    margin-top: 1rem;
+}
+
+.margin-top-large {
+    margin-top: 1.5rem;
+}
+
+.margin-top-extra-large {
+    margin-top: 2rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+}
+
+@media(min-width: 800px){
+    body {
+        height: 100vh;
+        padding: 1rem;
+        background-color: #979db7;
+    }
+
+    #root {
+        height: 100%;
+        padding: 0;
+        border-radius: 2rem;
+        display: grid;
+        grid-template-rows: auto 40px;
+        grid-template-columns: 225px auto;
+    }
+
+    header {
+        grid-row: span 2;
+        border-radius: 2rem 0 0 2rem;
+    }
+
+    main {
+        overflow-y: scroll;
+    }
+
+        main::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        main::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 1rem;
+        } 
 }

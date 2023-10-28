@@ -1,0 +1,33 @@
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Delicious Handrawn', cursive;
+}
+
+.login-link{
+    display: flex;
+    align-items: center;
+}
+
+.login-link img{
+    margin-right: 0.25rem;
+}
+
+@media(min-width: 800px){
+    header {
+        position: relative;
+        padding: 1rem;
+        background-color: rgb(56,56,56);
+        display: initial;
+    }
+
+    .login-link{
+        position: absolute;
+        bottom: 20px;
+    }
+}

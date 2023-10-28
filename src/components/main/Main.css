@@ -1,0 +1,57 @@
+.subCategories {
+    display: flex;
+    justify-content: space-between;
+}
+
+.activeSubCategory {
+    position: relative;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    white-space: nowrap;
+}
+    .activeSubCategory div {
+        position: absolute;
+        left: 42%;
+        width: 15px;
+        height: 15px;
+        transform: rotate(45deg);
+        background-color: var(--primary-color);
+    }
+
+.subCategory-selection select {
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    outline: none;
+}
+
+option.active {
+    color: #fff;
+}
+
+.displayList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.traverse-list-button button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+    .traverse-list-button button:hover {
+        transform: scale(1.1);
+        transition-duration: 0.3s;
+    }
+
+.item-container {
+    flex: 1;
+    margin-inline: 0.5rem;
+    max-width: 250px;
+}
