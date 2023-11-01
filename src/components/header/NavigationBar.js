@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavigationBar.css';
 
-function NavigationBar() {
+function NavigationBar(props) {
+    const classes = props.requestFrom === 'header' ? 'header-navigation-bar' : 'main-navigation-bar';
     const categories = ['Movies', 'Shows', 'Documentaries', 'Books', 'Recipes'];
     const [initialLoad, setInitialLoad] = useState(true);
 
@@ -11,8 +12,8 @@ function NavigationBar() {
     }
 
     return (
-        <div className="navigationBar margin-top-large">
-            <h1 className="font-size-extra-large">Categories</h1>
+        <div className={classes}>
+            <h1 className="font-size-large">Categories</h1>
             <nav className="navbar margin-top-small">
                 <ul className="navbar-items">
                     {

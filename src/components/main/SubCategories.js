@@ -17,8 +17,8 @@ function SubCategories(props) {
     }
 
     return (
-        <div className="subCategories margin-top-medium">
-            <div className="activeSubCategory font-size-small">
+        <div className="subCategories">
+            <div className="activeSubCategory font-size-extra-small">
                 {activeSubCategory} (10)
                 <div></div>
             </div>

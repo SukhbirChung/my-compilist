@@ -2,7 +2,7 @@ import Item from './item/Item';
 
 function DisplayList() {
     return (
-        <div className="displayList margin-top-extra-large">
+        <div className="displayList margin-top-large">
             <div className="traverse-list-button">
                 <button className="font-size-extra-large font-weight-bold">&lt;</button>
             </div>

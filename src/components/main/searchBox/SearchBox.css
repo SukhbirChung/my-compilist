@@ -1,0 +1,68 @@
+.searchBox-form-container {
+    max-width: 450px;
+    margin-left: auto;
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    background: linear-gradient(180deg, #253c3c, #1d4949);
+    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
+}
+
+.searchBox {
+    border-radius: 2rem;
+    padding-right: 0.5rem;
+    background-color: #fff;
+    display: flex;
+}
+
+    .searchBox input {
+        width: 100%;
+        border: none;
+        border-radius: 2rem 0 0 2rem;
+        outline: none;
+        padding-inline: 0.5rem;
+    }
+
+    .searchBox button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        padding: 0;
+        background: none;
+    }
+
+    .searchBox img {
+        border-radius: 0 2rem 2rem 0;
+    }
+
+.searchBox-form-category-options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .category-options div {
+        margin-right: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .category-options input {
+        margin: 0;
+        margin-right: 0.25rem;
+    }
+
+.searchBox-error-message {
+    max-width: max-content;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: red;
+    display: flex;
+    align-items: center;
+}
+
+    .searchBox-error-message img {
+        margin-right: 0.25rem;
+    }
+
+.searchBox-error-message span{
+    
+}
