@@ -1,4 +1,4 @@
-import Item from './item/Item';
+import Item from '../item/Item';
 
 function DisplayList() {
     return (
@@ -6,9 +6,10 @@ function DisplayList() {
             <div className="traverse-list-button">
                 <button className="font-size-extra-large font-weight-bold">&lt;</button>
             </div>
-            <div className="item-container">
-                <Item />
-            </div>
+            <Item requestFromDisplayList item={{}} selectedOption=''/>
+            {/*<div className="item-container">*/}
+            {/*    <Item />*/}
+            {/*</div>*/}
             <div className="traverse-list-button">
                 <button className="font-size-extra-large  font-weight-bold">&gt;</button>
             </div>

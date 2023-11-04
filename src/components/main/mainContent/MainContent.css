@@ -10,6 +10,7 @@
     background-color: var(--primary-color);
     white-space: nowrap;
 }
+
     .activeSubCategory div {
         position: absolute;
         left: 42%;
@@ -24,10 +25,6 @@
     border-radius: 0.5rem;
     padding: 0.5rem;
     outline: none;
-}
-
-option.active {
-    color: #fff;
 }
 
 .displayList {
@@ -51,7 +48,8 @@ option.active {
     }
 
 .item-container {
-    flex: 1;
-    margin-inline: 0.5rem;
-    max-width: 250px;
+    border: 1px solid white;
+    /*flex: 1;*/
+    /*margin-inline: 0.5rem;*/
+    /*max-width: 250px;*/
 }

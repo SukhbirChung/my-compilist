@@ -79,6 +79,10 @@ button{
     margin-top: 2rem;
 }
 
+.disable-scroll{
+    overflow: hidden;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -110,6 +114,7 @@ button{
 
     main {
         overflow-y: scroll;
+        padding-inline: 1rem;
     }
 
         main::-webkit-scrollbar {

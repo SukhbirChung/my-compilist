@@ -14,12 +14,25 @@ figure {
     color: #fff;
 }
 
-.hover-message{
+.hover-message {
     position: absolute;
+    left: 46px;
+    top: 60px;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(0,0,0,0.75);
+}
+
+.movie-poster {
+    height: 375px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .item-figcaption {
-    padding: 0.25rem 0.5rem 1rem;
+    padding: 0.25rem 0.5rem 1.5rem;
 }
 
 .rating {
@@ -27,21 +40,31 @@ figure {
     align-items: end;
 }
 
-.rating img{
-    margin-right: 0.25rem;
+    .rating img {
+        margin-right: 0.25rem;
+    }
+
+.item-external-links-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.watch-trailer .link {
-    border: 1px solid white;
-    display: flex;
-    align-items: center;
-    /*padding: 0.5rem;
-        border-radius: 0.5rem;
-        background-color: var(--primary-color);
-        
-        justify-content: space-evenly;
-        */
+.moving-color-button {
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    color: #fff;
+    background: linear-gradient(to right, transparent 50%, var(--primary-color) 50%);
+    background-size: 200%;
+    background-position: right;
+    transition: .35s ease-out;
 }
+
+    .moving-color-button:hover {
+        background-position: left;
+    }
+
+
 
 /*
 

@@ -1,56 +1,71 @@
-.header-navigation-bar {
-    display: none;
-    overflow-x: scroll;
+.navbar-item {
+    padding-block: 0.5rem;
+    display: flex;
+    align-items: end;
 }
 
-.navbar-items {
+.navbar-item-icon {
+    margin-right: 0.5rem;
+}
+
+.header-navigation-bar {
+    display: none;
+    flex: 1;
+}
+
+    .header-navigation-bar .navbar-item:hover, .header-navigation-bar .navbar-item.active {
+        color: var(--primary-color);
+    }
+
+        .header-navigation-bar .navbar-item:hover #Movies,
+        .header-navigation-bar .navbar-item:hover #Books,
+        .header-navigation-bar .navbar-item.active #Movies,
+        .header-navigation-bar .navbar-item.active #Books {
+            fill: var(--primary-color);
+        }
+
+        .header-navigation-bar .navbar-item:hover #Shows path,
+        .header-navigation-bar .navbar-item.active #Shows path {
+            stroke: var(--primary-color);
+        }
+
+        .header-navigation-bar .navbar-item:hover #Documentaries,
+        .header-navigation-bar .navbar-item.active #Documentaries {
+            stroke: var(--primary-color);
+            fill: var(--primary-color);
+        }
+
+.main-navigation-bar .navbar-items {
     display: flex;
     overflow-x: scroll;
 }
 
-    .navbar-items::-webkit-scrollbar {
-        background: transparent;
-        width: 0px;
-    }
+.navbar-items::-webkit-scrollbar {
+    background: transparent;
+    width: 0px;
+}
 
-.navbar-item {
-    display: inline-block;
+.main-navigation-bar .navbar-item {
     margin-right: 0.75rem;
     border-radius: 2rem;
     padding: 0.5rem 1.5rem;
     background-color: slategray;
-    white-space: nowrap;
 }
 
-.navbar-item img {
-    display: none;
-}
-
-.active {
+.main-navigation-bar .navbar-item:hover {
     background-color: var(--primary-color);
 }
 
+    .main-navigation-bar .navbar-item.active {
+        background-color: var(--primary-color);
+    }
+
 @media(min-width: 800px){
-    .navbar-items{
-        display: block;
-    }
-
-    .navbar-item {
-        width: 100%;
-        margin-right: 0;
-        border-radius: 0;
-        padding: 0.5rem 0;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar-item img {
+    .header-navigation-bar {
         display: initial;
-        margin-right: 0.75rem;
     }
 
-    .link.active{
-        color: var(--primary-color);
+    .main-navigation-bar {
+        display: none;
     }
 }

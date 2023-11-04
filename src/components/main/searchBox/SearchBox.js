@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import axios from 'axios';
 import { submitForm } from '../../../helpers/helpers';
 import './SearchBox.css';
 
@@ -7,6 +6,7 @@ function SearchBox(props) {
     const userInput = useRef();
     const [errorMessage, setErrorMessage] = useState('');
     const [selectedOption, setSelectedOption] = useState('movie');
+    const [isLoading, setIsLoading] = useState(false);
 
     const focusHandler = () => {
         setErrorMessage('');
@@ -18,6 +18,10 @@ function SearchBox(props) {
 
     const submitHandler = (event) => {
         event.preventDefault();
+
+        setIsLoading(true);
+        document.body.classList.add('disable-scroll');
+
         let query = userInput.current.value.trim();
 
         if (query) {
@@ -30,20 +34,32 @@ function SearchBox(props) {
             response
                 .then((res) => {
                     res === 'success' ?
-                        props.returnSearchResults(true) :
-                        setErrorMessage(res)
+                        props.returnSearchResults(true, query, selectedOption) :
+                        setErrorMessage(res);
+                    setIsLoading(false);
+                    document.body.classList.remove('disable-scroll');
                 })
                 .catch(err => {
                     console.log(err);
+                    setIsLoading(false);
+                    document.body.classList.remove('disable-scroll');
                 });
         }
         else {
             setErrorMessage('Search box cannot be empty.');
+            setIsLoading(false);
+            document.body.classList.remove('disable-scroll');
         }
     }
 
     return (
         <div className="searchBox-form-container margin-top-large">
+            {
+                isLoading &&
+                <div className="loader">
+                    <img src={process.env.PUBLIC_URL + '/assets/loader.svg'} alt="Loader" />
+                </div>
+            }
             <form className="searchBox-form" onSubmit={submitHandler}>
                 <div className="searchBox">
                     <label htmlFor="search" className="visually-hidden">Search</label>

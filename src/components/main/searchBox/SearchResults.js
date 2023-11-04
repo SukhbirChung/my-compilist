@@ -1,32 +1,39 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import Item from '../item/Item';
+import { searchResults } from '../../../helpers/helpers';
+import DisplayResults from '../displayResults/DisplayResults';
 import './SearchResults.css';
 
 function SearchResults(props) {
-    const searchResults = props.searchResults;
+    const selectedOption = props.selectedOption;
 
-    while (searchResults.length > 8) {
+    while (searchResults.length > 10) {
         searchResults.pop();
     }
 
     searchResults.sort((a, b) => {
-        return (new Date(a.release_date)).getFullYear() - (new Date(b.release_date)).getFullYear();
+        if (selectedOption === 'movie') {
+            return (new Date(b.release_date)).getFullYear() - (new Date(a.release_date)).getFullYear();
+        }
+        else if (selectedOption === 'tv') {
+            return (new Date(b.first_air_date)).getFullYear() - (new Date(a.first_air_date)).getFullYear();
+        }
+        else if (selectedOption === 'books') {
+            return a.first_publish_year - b.first_publish_year;
+        }
     });
 
     return (
         <Fragment>
-            <div className="SearchResults margin-top-medium">
+            <h1 className="margin-top-large font-size-large">Search Results</h1>
+            <div className="SearchResults">
                 {
                     searchResults.length === 0 ?
                         <p className="font-size-medium">No results found!</p> :
-                        searchResults.map((item) => {
-                            return <Item key={item.id} item={item} />
-                        })
+                        <DisplayResults selectedOption={selectedOption} requestFromSearchResults/>
                 }
             </div>
-            <div className="SearchResults-close-button margin-top-medium">
-                <button onClick={() => props.closeSearchResults(false)}>Go to My Compilist Collection</button>
+            <div className="close-search-results-container margin-top-small">
+                <button className="moving-color-button font-size-medium" onClick={() => props.closeSearchResults(false)}>Go to My Compilist Collection</button>
             </div>
         </Fragment>
     );

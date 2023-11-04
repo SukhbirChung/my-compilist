@@ -2,28 +2,34 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SearchBox from './searchBox/SearchBox';
 import SearchResults from './searchBox/SearchResults';
-import { searchResults } from '../../helpers/helpers';
-import SubCategories from './SubCategories';
-import DisplayList from './DisplayList';
-import './Main.css';
+//import MainContent from './mainContent/MainContent';
 
 function Main() {
-    //const params = useParams();
-    //const category = params.category ? params.category : 'Movies';
+    const params = useParams();
+    const category = params.category ? params.category : 'Movies';
 
-    const [displaySearchResults, setDisplaySearchResults] = useState(false);
+    const [searchResultsState, setSearchResultsState] = useState({
+        display: false,
+        query: '',
+        selectedOption: ''
+    });
 
-    const returnedSearchResults = (flag) => {
-        setDisplaySearchResults(flag);
+    const returnedSearchResults = (flag, query, selectedOption) => {
+        setSearchResultsState({
+            display: flag,
+            query: query,
+            selectedOption: selectedOption
+        });
     }
 
     return (
         <main>
             <SearchBox returnSearchResults={returnedSearchResults} />
-            {displaySearchResults && <SearchResults searchResults={searchResults} closeSearchResults={returnedSearchResults} />}
-            
-            {/*<SubCategories category={category} />*/}
-            {/*<DisplayList />*/}
+            {
+                searchResultsState.display ?
+                    <SearchResults selectedOption={searchResultsState.selectedOption} closeSearchResults={returnedSearchResults} /> : ''
+                    /*<MainContent category={ category}/>*/
+            }
         </main>
     );
 }
