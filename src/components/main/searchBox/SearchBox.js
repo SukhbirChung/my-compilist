@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import Loader from '../../loader/Loader';
+import { useNavigate } from 'react-router-dom';
 import { submitForm } from '../../../helpers/helpers';
 import './SearchBox.css';
 
@@ -7,6 +9,7 @@ function SearchBox(props) {
     const [errorMessage, setErrorMessage] = useState('');
     const [selectedOption, setSelectedOption] = useState('movie');
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const focusHandler = () => {
         setErrorMessage('');
@@ -34,7 +37,7 @@ function SearchBox(props) {
             response
                 .then((res) => {
                     res === 'success' ?
-                        props.returnSearchResults(true, query, selectedOption) :
+                        navigate('/searchresults') :
                         setErrorMessage(res);
                     setIsLoading(false);
                     document.body.classList.remove('disable-scroll');
@@ -55,10 +58,7 @@ function SearchBox(props) {
     return (
         <div className="searchBox-form-container margin-top-large">
             {
-                isLoading &&
-                <div className="loader">
-                    <img src={process.env.PUBLIC_URL + '/assets/loader.svg'} alt="Loader" />
-                </div>
+                isLoading && <Loader />
             }
             <form className="searchBox-form" onSubmit={submitHandler}>
                 <div className="searchBox">

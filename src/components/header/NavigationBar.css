@@ -40,11 +40,6 @@
     overflow-x: scroll;
 }
 
-.navbar-items::-webkit-scrollbar {
-    background: transparent;
-    width: 0px;
-}
-
 .main-navigation-bar .navbar-item {
     margin-right: 0.75rem;
     border-radius: 2rem;

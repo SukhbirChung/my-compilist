@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
-import { searchResults } from '../../../helpers/helpers';
+import { Link } from 'react-router-dom';
+import { selectedOption, searchResults } from '../../../helpers/helpers';
 import DisplayResults from '../displayResults/DisplayResults';
 import './SearchResults.css';
 
 function SearchResults(props) {
-    const selectedOption = props.selectedOption;
-
     while (searchResults.length > 10) {
         searchResults.pop();
     }
@@ -33,7 +32,7 @@ function SearchResults(props) {
                 }
             </div>
             <div className="close-search-results-container margin-top-small">
-                <button className="moving-color-button font-size-medium" onClick={() => props.closeSearchResults(false)}>Go to My Compilist Collection</button>
+                <Link to="/" className="link moving-color-button font-size-medium">Go to Homepage</Link>
             </div>
         </Fragment>
     );

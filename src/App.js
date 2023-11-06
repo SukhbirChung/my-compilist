@@ -11,7 +11,8 @@ const router = createBrowserRouter([
         element: <RootLayout />,
         errorElement: <ErrorMessage />,
         children: [
-            { path: '', element: <Main /> },
+            { path: '', element: <Main homepage /> },
+            { path: '/searchresults', element: <Main showSearchResults /> },
             { path: ':category', element: <Main /> }
         ]
     },

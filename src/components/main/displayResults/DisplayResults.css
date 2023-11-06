@@ -24,6 +24,7 @@ figure {
 }
 
 .movie-poster {
+    width: 250px;
     height: 375px;
     border-bottom: 1px solid gray;
     display: flex;

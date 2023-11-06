@@ -7,11 +7,12 @@ function NavigationBar(props) {
         <div className={props.requestComingFrom === 'header' ? 'header-navigation-bar' : 'main-navigation-bar'}>
             <h1 className="font-size-large margin-top-extra-large">Categories</h1>
             <nav className="navbar margin-top-small">
-                <ul className="navbar-items">
+                <ul className="navbar-items hide-scrollbar">
                     {
                         Object.keys(categories).map((category) => {
                             return <li key={category}>
-                                <NavLink to={`/${category}`} className={`link navbar-item`}>
+                                <NavLink to={`/${category}`}
+                                    className={`link navbar-item`}>
                                     {
                                         props.requestComingFrom === 'header' && categories[category]
                                     }                                    

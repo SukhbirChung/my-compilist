@@ -51,12 +51,12 @@ function MyAccount(props) {
             setIsLoading(true);
             submitForm(userCredentials)
                 .then(res => {
-                    if (res[0] === 'error') {
-                        setFormSubmissionResponse(res[1]);
+                    if (res.status === 500) {
+                        setFormSubmissionResponse(res.data);
                     }
                     else {
-                        console.log(res[1]);
-                        navigate('/');
+                        console.log(res.data);
+                        //navigate('/');
 
                         setUserCredentials({
                             email: '',
