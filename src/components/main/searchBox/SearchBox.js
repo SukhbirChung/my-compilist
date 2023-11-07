@@ -56,7 +56,7 @@ function SearchBox(props) {
     }
 
     return (
-        <div className="searchBox-form-container margin-top-large">
+        <div className="searchBox-form-container">
             {
                 isLoading && <Loader />
             }

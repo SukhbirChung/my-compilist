@@ -17,12 +17,12 @@ function MovieResults(props) {
                     <img src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`} width="250" height="375" alt="Movie poster" /> :
                     <p className="movie-poster font-size-extra-large">No Image Available</p>
             }
-            <figcaption className="item-figcaption">
+            <figcaption className="item-figcaption margin-top-small">
                 <Rating rating={item.vote_average} />
-                <div className="font-size-large">
+                <div className="font-size-medium margin-top-small item-title">
                     {name} ({year})
-                    </div>
-                <div className="item-external-links-container margin-top-medium font-size-medium">
+                </div>
+                <div className="item-external-links-container margin-top-medium">
                     <Link className="link moving-color-button" to={`https://www.youtube.com/results?search_query=${name}+trailer`} target="_blank">
                         Trailer
                         </Link>

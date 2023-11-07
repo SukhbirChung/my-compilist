@@ -4,6 +4,8 @@ figure {
     margin: 1rem;
     border-radius: 0 0 0.75rem 0.75rem;
     background-color: rgb(66,66,66);
+    display: flex;
+    flex-direction:column;
 }
 
 .add-to-collection-button {
@@ -34,6 +36,13 @@ figure {
 
 .item-figcaption {
     padding: 0.25rem 0.5rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    flex: 1;
 }
 
 .rating {
@@ -47,7 +56,7 @@ figure {
 
 .item-external-links-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .moving-color-button {

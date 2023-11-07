@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { submitForm, validateForm } from '../helpers/helpers';
+import Loader from './loader/Loader';
 import './MyAccount.css';
 
 function MyAccount(props) {
@@ -83,10 +84,7 @@ function MyAccount(props) {
                     </div>
                 }
                 {
-                    isLoading &&
-                    <div className="loader">
-                        <img src={process.env.PUBLIC_URL+'/assets/loader.svg'} alt="Loader" />
-                    </div>
+                    isLoading && <Loader />
                 }
                 <h1 className="font-size-large font-weight-bold">
                     {formType}

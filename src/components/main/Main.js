@@ -8,7 +8,7 @@ function Main(props) {
     const category = params.category ? params.category : 'Movies';
 
     return (
-        <main>
+        <main className="margin-top-large">
             <SearchBox />
             {
                 props.showSearchResults ? 

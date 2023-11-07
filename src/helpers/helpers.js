@@ -28,7 +28,11 @@ async function getPopularItems() {
             popularItems[item] = response.data.results;
         }
         catch (err) {
-            console.log(err);
+            let errorMessage;
+            errorMessage = err.message === 'Network Error' ?
+                `${err.message}. Please connect to the internet.` :
+                `Couldn't fetch this week's popular lists. Try refreshing the page, fetching lists via search box or login to access your personalized lists.`
+            return errorMessage;
         }
     }
 
@@ -47,7 +51,11 @@ async function getPopularItems() {
         popularItems.books = response.data.docs;
     }
     catch (err) {
-        console.log(err);
+        let errorMessage;
+        errorMessage = err.message === 'Network Error' ?
+            `${err.message}. Please connect to the internet.` :
+            `Couldn't fetch this week's popular lists. Try refreshing the page, fetching lists via search box or login to access your personalized lists.`
+        return errorMessage;
     }
 
     return popularItems;
