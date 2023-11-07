@@ -14,19 +14,19 @@ function MovieResults(props) {
             <AddToCollectionButton />
             {
                 item.poster_path ?
-                    <img src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`} width="250" height="375" alt="Movie poster" /> :
+                    <img src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} width="200" height="300" alt="Movie poster" /> :
                     <p className="movie-poster font-size-extra-large">No Image Available</p>
             }
             <figcaption className="item-figcaption margin-top-small">
                 <Rating rating={item.vote_average} />
-                <div className="font-size-medium margin-top-small item-title">
+                <div className="margin-top-small item-title">
                     {name} ({year})
                 </div>
                 <div className="item-external-links-container margin-top-medium">
                     <Link className="link moving-color-button" to={`https://www.youtube.com/results?search_query=${name}+trailer`} target="_blank">
                         Trailer
                         </Link>
-                    <Link className="link moving-color-button" to={`https://www.imdb.com/find/?q=${name}&ref_=nv_sr_sm`} target="_blank">
+                    <Link className="link moving-color-button margin-top-small" to={`https://www.imdb.com/find/?q=${name}&ref_=nv_sr_sm`} target="_blank">
                         IMDB
                         </Link>
                 </div>
