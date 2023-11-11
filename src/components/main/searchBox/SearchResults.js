@@ -4,7 +4,7 @@ import { selectedOption, searchResults } from '../../../helpers/helpers';
 import DisplayResults from '../displayResults/DisplayResults';
 import './SearchResults.css';
 
-function SearchResults(props) {
+function SearchResults() {
     while (searchResults.length > 10) {
         searchResults.pop();
     }
@@ -13,7 +13,7 @@ function SearchResults(props) {
         if (selectedOption === 'movie') {
             return (new Date(b.release_date)).getFullYear() - (new Date(a.release_date)).getFullYear();
         }
-        else if (selectedOption === 'tv') {
+        else if (selectedOption === 'tv' || selectedOption === 'documentaries') {
             return (new Date(b.first_air_date)).getFullYear() - (new Date(a.first_air_date)).getFullYear();
         }
         else if (selectedOption === 'books') {

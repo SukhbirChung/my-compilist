@@ -36,9 +36,13 @@ function SearchBox(props) {
 
             response
                 .then((res) => {
-                    res === 'success' ?
-                        navigate('/searchresults') :
+                    if (res === 'success') {
+                        props.searchResultsUpdated();
+                        navigate('/searchresults');
+                    }
+                    else {
                         setErrorMessage(res);
+                    }
                     setIsLoading(false);
                     document.body.classList.remove('disable-scroll');
                 })
@@ -82,7 +86,7 @@ function SearchBox(props) {
                         <label htmlFor="shows">Shows</label>
                     </div>
                     <div>
-                        <input type="radio" id="documentaries" name="searchBox-form-category-option" value="tv" onChange={changeHandler} />
+                        <input type="radio" id="documentaries" name="searchBox-form-category-option" value="documentaries" onChange={changeHandler} />
                         <label htmlFor="documentaries">Documentaries</label>
                     </div>
                     <div>

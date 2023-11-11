@@ -1,30 +1,31 @@
 import React, { useState, Fragment } from 'react';
+import { addToCollection } from '../../../helpers/helpers';
 
 function AddToCollectionButton(props) {
-    const classes = props.itemExists ?
-        'add-to-collection-button font-size-large disabled' :
-        'add-to-collection-button font-size-large';
+    const [btnDisabled, setBtnDisabled] = useState(false);
 
     const [hoverMessage, setHoverMessage] = useState('');
 
     const clickHandler = () => {
-        console.log("added to collection");
+        const response = addToCollection(props.category, props.id);
+
+        response.then((res) => {
+            if (res.status === 200) {
+                setBtnDisabled(true);
+                console.log(res.data);
+            }
+        }).catch(err => console.log(err));
     }
 
     return (
         <Fragment>
-            <button className={classes}
+            <button className={`add-to-collection-button font-size-large${btnDisabled ? ' diabled-button' : ''}`}
+                disabled={btnDisabled}
                 onClick={clickHandler}
-                onMouseEnter={() => {
-                    setHoverMessage(
-                        props.itemExists ?
-                            'Already added to My Compilist Collection' :
-                            'Add to My Compilist Collection'
-                    );
-                }}
+                onMouseEnter={() => setHoverMessage('Add to your Collection')}
                 onMouseLeave={() => setHoverMessage('')}>
                 {
-                    props.itemExists ? '&#x2713;' : '+'
+                    btnDisabled ? '\u2713' : '+'
                 }
             </button>
             {

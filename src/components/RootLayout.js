@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom';
 import Header from './header/Header';
 import Footer from './Footer';
 
-function RootLayout() {
+function RootLayout(props) {
     return (
         <Fragment>
-            <Header />
+            <Header isLoggedIn={props.isLoggedIn} logoutBtnClicked={props.logoutBtnClicked} />
             <Outlet />
             <Footer />
         </Fragment>

@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 function SubCategories(props) {
     const category = props.category;
 
-    const subCategories = ['Watched', 'Not Watched', 'IMDB Rating', 'My Rating', 'Year'];
-    const subCategoriesBooks = ['Read', 'Not Read', 'Rating'];
+    const subCategories = ['Year', 'Rating', 'Favorite', 'Watched', 'Not Watched'];
+    const subCategoriesBooks = ['Year', 'Rating', 'Favorite', 'Read', 'Not Read'];
 
     const [activeSubCategory, setActiveSubCategory] = useState('All');
 

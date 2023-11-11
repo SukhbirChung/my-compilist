@@ -27,38 +27,7 @@
     outline: none;
 }
 
-.popular-this-week-container {
-    /*border: 1px solid red;*/
-}
-
 .popular-this-week{
     display: flex;
     overflow-x: scroll;
-}
-
-/*.traverse-list-button button {
-    width: 35px;
-    height: 35px;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-    .traverse-list-button button:hover {
-        transform: scale(1.1);
-        transition-duration: 0.3s;
-    }*/
-/*.displayList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-*/
-.item-container {
-    /*border: 1px solid white;*/
-    /*flex: 1;*/
-    /*margin-inline: 0.5rem;*/
-    /*max-width: 250px;*/
 }

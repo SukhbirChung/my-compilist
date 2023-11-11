@@ -8,14 +8,23 @@ header {
     font-family: 'Delicious Handrawn', cursive;
 }
 
+.username{
+    display: none;
+}
+
 .login-link .link{
     display: flex;
     align-items: center;
 }
 
-    .login-link img {
-        margin-right: 0.25rem;
-    }
+.logout-button{
+    background: transparent;
+    border: none;
+}
+
+.login-link img {
+    margin-right: 0.25rem;
+}
 
 @media(min-width: 800px) {
     header {
@@ -24,5 +33,9 @@ header {
         align-items: start;
         padding: 2rem 1rem;
         background-color: rgb(56,56,56);
+    }
+
+    .username{
+        display: initial;
     }
 }

@@ -52,12 +52,9 @@ function MyAccount(props) {
             setIsLoading(true);
             submitForm(userCredentials)
                 .then(res => {
-                    if (res.status === 500) {
-                        setFormSubmissionResponse(res.data);
-                    }
-                    else {
-                        console.log(res.data);
-                        //navigate('/');
+                    if (res.status === 200) {
+                        props.response();
+                        navigate('/');
 
                         setUserCredentials({
                             email: '',
@@ -67,7 +64,10 @@ function MyAccount(props) {
                         setPasswordHidden(true);
                         setErrorMessage(false);
                         setFormSubmissionResponse('');
+                    } else {
+                        setFormSubmissionResponse(res.data);
                     }
+
                     setIsLoading(false);
                 })
                 .catch(err => console.log(err));

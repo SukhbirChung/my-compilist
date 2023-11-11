@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import NavigationBar from '../../header/NavigationBar';
-import SubCategories from './SubCategories';
 import PopularThisWeek from './PopularThisWeek';
-import DisplayList from './DisplayList';
+import UserCompilistList from '../userCompilistList/UserCompilistList';
 import './MainContent.css';
 
 function MainContent(props) {
@@ -10,13 +9,10 @@ function MainContent(props) {
         <Fragment>
             <NavigationBar requestComingFrom='main' />
             {
-                !props.homepage && <SubCategories category={props.category} />
+                props.homepage ?
+                    <PopularThisWeek /> :
+                    <UserCompilistList isLoggedIn={props.isLoggedIn} category={ props.category} />
             }
-            {
-                props.homepage && <PopularThisWeek />
-            }
-            
-            {/*<DisplayList />*/}
         </Fragment>
     );
 }

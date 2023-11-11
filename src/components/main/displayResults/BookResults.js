@@ -7,7 +7,7 @@ function BookResults(props) {
 
     return (
         <figure>
-            <AddToCollectionButton />
+            <AddToCollectionButton category='books' id={ item.key}/>
             {
                 item.cover_i ?
                     <img src={`https://covers.openlibrary.org/b/id/${item.cover_i}-L.jpg`} width="200" height="300" alt="Book Cover" /> :

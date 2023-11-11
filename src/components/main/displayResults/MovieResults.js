@@ -11,7 +11,7 @@ function MovieResults(props) {
 
     return (
         <figure>
-            <AddToCollectionButton />
+            <AddToCollectionButton category={selectedOption} id={ item.id} />
             {
                 item.poster_path ?
                     <img src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} width="200" height="300" alt="Movie poster" /> :
