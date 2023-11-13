@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { loggedInUserInfo } from '../../../helpers/helpers';
-import SubCategories from './SubCategories';
+//import SubCategories from './SubCategories';
 import DisplayUserList from './DisplayUserList';
 
 function DisplayList(props) {
@@ -8,7 +8,7 @@ function DisplayList(props) {
 
     return (
         <Fragment>
-            <SubCategories category={category} totalNumber={loggedInUserInfo.compilistList[category.toLowerCase()].length} />
+            {/*<SubCategories category={category} totalNumber={loggedInUserInfo.compilistList[category.toLowerCase()].length} />*/}
             <h2 className="font-size-medium margin-top-large">My {category}</h2>
             <div className="displayList">
                 {
