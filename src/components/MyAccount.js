@@ -53,7 +53,7 @@ function MyAccount(props) {
             submitForm(userCredentials)
                 .then(res => {
                     if (res.status === 200) {
-                        props.response();
+                        props.response(res.data);
                         navigate('/');
 
                         setUserCredentials({

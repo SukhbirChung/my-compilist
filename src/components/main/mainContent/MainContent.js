@@ -10,7 +10,7 @@ function MainContent(props) {
             <NavigationBar requestComingFrom='main' />
             {
                 props.homepage ?
-                    <PopularThisWeek /> :
+                    <PopularThisWeek isLoggedIn={props.isLoggedIn} /> :
                     <UserCompilistList isLoggedIn={props.isLoggedIn} category={ props.category} />
             }
         </Fragment>

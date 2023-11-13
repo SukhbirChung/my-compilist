@@ -191,6 +191,14 @@ async function addToCollection(category, id) {
 
     try {
         const response = await axios.request(options);
+
+        if (response.status === 200) {
+            loggedInUserInfo.username = response.data.loggedInUserInfo.username[0].toUpperCase() + response.data.loggedInUserInfo.username.slice(1);
+            loggedInUserInfo.compilistList = response.data.loggedInUserInfo.compilistList;
+
+            return response;
+        }
+
         return response;
     }
     catch (err) {
@@ -198,4 +206,57 @@ async function addToCollection(category, id) {
     }
 }
 
-export { selectedOption, searchResults, loggedInUserInfo, categories, checkIfUserLoggedIn, logout, submitForm, getPopularItems, validateForm, addToCollection };
+async function getUserList(category) {
+    if (category === 'books') {
+        return loggedInUserInfo.compilistList[category];
+    }
+
+    const userList = [];
+    let url = '';
+    const listOfId = loggedInUserInfo.compilistList[category];
+
+    if (category === 'movies') {
+        url = 'https://api.themoviedb.org/3/movie/';
+    } else if (category === 'shows' || category === 'documentaries') {
+        url = 'https://api.themoviedb.org/3/tv/';
+    }
+
+    const options = {
+        method: 'GET',
+        params: {
+                language: 'en-US',
+                api_key: process.env.REACT_APP_TMDB_KEY
+            }
+    };
+
+    for (let id of listOfId) {
+        options.url = url + id; 
+
+        try {
+            const response = await axios.request(options);
+            userList.push(response.data);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+    return userList;
+}
+
+//async function markFavorite(category, id) {
+//    const options = {
+//        method: 'POST',
+//        url: 'http://localhost:3000/markFavorite',
+//        data: {
+//            category: category,
+//            id: id
+//        }
+//    }
+//}
+
+//async function markWatched(id) {
+
+//}
+
+export { selectedOption, searchResults, loggedInUserInfo, categories, checkIfUserLoggedIn, logout, submitForm, getPopularItems, validateForm, addToCollection, getUserList/*, markFavorite, markWatched */};

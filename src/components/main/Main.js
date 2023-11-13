@@ -20,7 +20,7 @@ function Main(props) {
             <SearchBox searchResultsUpdated={searchResultsUpdated}/>
             {
                 props.showSearchResults ?
-                    <SearchResults /> :
+                    <SearchResults isLoggedIn={props.isLoggedIn}/> :
                     <MainContent isLoggedIn={props.isLoggedIn} homepage={props.homepage} category={ category}/>          }
         </main>
     );

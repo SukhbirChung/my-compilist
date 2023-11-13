@@ -3,7 +3,7 @@ import Loader from '../../loader/Loader';
 import { getPopularItems } from '../../../helpers/helpers';
 import PopularItems from './PopularItems';
 
-function PopularThisWeek() {
+function PopularThisWeek(props) {
     const [popularItems, setPopularItems] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -27,7 +27,7 @@ function PopularThisWeek() {
             {
                 !popularItems ? '' :
                     (typeof popularItems === 'string') ?
-                        <p>{popularItems}</p> : <PopularItems popularItems={popularItems} />
+                        <p>{popularItems}</p> : <PopularItems popularItems={popularItems} isLoggedIn={props.isLoggedIn} />
             }
         </div>
     );

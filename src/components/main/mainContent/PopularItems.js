@@ -11,7 +11,7 @@ function PopularItems(props) {
             <div className="popular-this-week hide-scrollbar">
                 {
                     popularItems.movie.map((item) => {
-                        return <MovieResults key={item.id} item={item} selectedOption='movie' />
+                        return <MovieResults key={item.id} item={item} selectedOption='movie' isLoggedIn={props.isLoggedIn} />
                     })
                 }
             </div>
@@ -20,7 +20,7 @@ function PopularItems(props) {
             <div className="popular-this-week hide-scrollbar">
                 {
                     popularItems.tv.map((item) => {
-                        return <MovieResults key={item.id} item={item} selectedOption='tv' />
+                        return <MovieResults key={item.id} item={item} selectedOption='tv' isLoggedIn={props.isLoggedIn} />
                     })
                 }
             </div>
@@ -29,7 +29,7 @@ function PopularItems(props) {
             <div className="popular-this-week hide-scrollbar">
                 {
                     popularItems.books.map((item) => {
-                        return <BookResults key={item.key} item={item} />
+                        return <BookResults key={item.key} item={item} isLoggedIn={props.isLoggedIn} />
                     })
                 }
             </div>

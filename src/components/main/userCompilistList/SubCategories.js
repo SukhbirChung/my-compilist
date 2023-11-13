@@ -19,7 +19,7 @@ function SubCategories(props) {
     return (
         <div className="subCategories">
             <div className="activeSubCategory font-size-extra-small">
-                {activeSubCategory} (10)
+                {activeSubCategory} ({props.totalNumber})
                 <div></div>
             </div>
             <div className="subCategory-selection">

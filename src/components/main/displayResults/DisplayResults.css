@@ -41,6 +41,32 @@ figure {
     flex-direction: column;
 }
 
+.isFavAndIsWatched-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .isFavAndIsWatched-container button {
+        border: none;
+        padding: 0;
+        background: transparent;
+        color: #fff;
+        display: flex;
+        align-items: center;
+    }
+
+    .isFavAndIsWatched-container svg, .isFavAndIsWatched-container input{
+        margin-right: 0.25rem;
+    }
+
+        .isFavAndIsWatched-container input, .isFavAndIsWatched-container label{
+            cursor: pointer;
+        }
+
+    .isFavAndIsWatched-container input {
+        accent-color: var(--primary-color);
+    }
+
 .item-title {
     flex: 1;
 }
@@ -74,51 +100,3 @@ figure {
     .moving-color-button:hover {
         background-position: left;
     }
-
-
-
-/*
-
-    .rating span:nth-of-type(2) {
-        border: 1px solid white;
-        padding: 0.55rem;
-        background-color: var(--primary-color);
-    }*/
-
-
-/*
-
-
-
-.isFavAndIsWatched-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.isFav input {
-    display: none;
-}
-
-.isFav span {
-    width: 24px;
-    height: 24px;
-    margin-right: 0.3rem;
-    display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-.isWatched {
-    display: flex;
-}
-
-    .isWatched input {
-        margin-right: 0.3rem;
-        width: 18px;
-        height: 18px;
-        accent-color: var(--primary-color);
-    }
-
-
-
-*/

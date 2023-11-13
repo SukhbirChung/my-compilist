@@ -1,19 +1,24 @@
 import { Link } from 'react-router-dom';
 import AddToCollectionButton from './AddToCollectionButton';
+//import IsFavAndIsWatched from './IsFavAndIsWatched';
 import Rating from './Rating';
 
 function BookResults(props) {
     const item = props.item;
-
+    
     return (
         <figure>
-            <AddToCollectionButton category='books' id={ item.key}/>
+            <AddToCollectionButton item={ item} isLoggedIn={props.isLoggedIn} comingFromDisplayUserList={props.comingFromDisplayUserList}/>
             {
                 item.cover_i ?
                     <img src={`https://covers.openlibrary.org/b/id/${item.cover_i}-L.jpg`} width="200" height="300" alt="Book Cover" /> :
                     <p className="movie-poster font-size-extra-large">No Image Available</p>
             }
             <figcaption className="item-figcaption margin-top-small">
+                {/*{*/}
+                {/*    props.comingFromDisplayUserList && <IsFavAndIsWatched id={item.id} selectedOption='books'/>*/}
+
+                {/*}*/}
                 <Rating rating={item.ratings_average} for='book' />
                 <div className="margin-top-small item-title">
                     {item.title} ({item.first_publish_year})

@@ -37,7 +37,7 @@ function App() {
                 {
                     path: '', element: <Main isLoggedIn={isLoggedIn} homepage />
                 },
-                { path: '/searchresults', element: <Main showSearchResults /> },
+                { path: '/searchresults', element: <Main showSearchResults isLoggedIn={isLoggedIn} /> },
                 { path: ':category', element: <Main isLoggedIn={isLoggedIn} /> }
             ]
         },

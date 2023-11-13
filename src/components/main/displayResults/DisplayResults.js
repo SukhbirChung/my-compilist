@@ -8,11 +8,11 @@ function DisplayResults(props) {
         props.requestFromSearchResults && (
             props.selectedOption === 'books' ?
                 searchResults.map((item) => {
-                    return <BookResults key={ item.key} item={item} />
+                    return <BookResults key={item.key} item={item} isLoggedIn={props.isLoggedIn} />
                 })
                 :
                 searchResults.map((item) => {
-                    return <MovieResults key={ item.id} item={item} selectedOption={props.selectedOption} />
+                    return <MovieResults key={item.id} item={item} selectedOption={props.selectedOption} isLoggedIn={props.isLoggedIn} />
                 })
             )
     );

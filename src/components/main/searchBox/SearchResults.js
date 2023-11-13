@@ -4,7 +4,7 @@ import { selectedOption, searchResults } from '../../../helpers/helpers';
 import DisplayResults from '../displayResults/DisplayResults';
 import './SearchResults.css';
 
-function SearchResults() {
+function SearchResults(props) {
     while (searchResults.length > 10) {
         searchResults.pop();
     }
@@ -28,7 +28,7 @@ function SearchResults() {
                 {
                     searchResults.length === 0 ?
                         <p className="font-size-medium">No results found!</p> :
-                        <DisplayResults selectedOption={selectedOption} requestFromSearchResults/>
+                        <DisplayResults selectedOption={selectedOption} requestFromSearchResults isLoggedIn={props.isLoggedIn}/>
                 }
             </div>
             <div className="close-search-results-container margin-top-small">
