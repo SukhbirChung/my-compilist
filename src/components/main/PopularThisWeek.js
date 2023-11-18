@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Loader from '../../loader/Loader';
-import { getPopularItems } from '../../../helpers/helpers';
-import PopularItems from './PopularItems';
+import Loader from '../loader/Loader';
+import { getPopularItems } from '../../helpers/getPopularItems';
+import DisplayResults from '../displayResults/DisplayResults';
 
 function PopularThisWeek(props) {
     const [popularItems, setPopularItems] = useState();
@@ -27,7 +27,7 @@ function PopularThisWeek(props) {
             {
                 !popularItems ? '' :
                     (typeof popularItems === 'string') ?
-                        <p>{popularItems}</p> : <PopularItems popularItems={popularItems} isLoggedIn={props.isLoggedIn} />
+                        <p>{popularItems}</p> : <DisplayResults popularItems={popularItems} username={props.username} />
             }
         </div>
     );

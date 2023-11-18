@@ -4,3 +4,8 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.link-paptido{
+    color: #ffc700;
+    text-decoration: underline;
+}

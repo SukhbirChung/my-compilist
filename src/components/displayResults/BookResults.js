@@ -8,18 +8,14 @@ function BookResults(props) {
     
     return (
         <figure>
-            <AddToCollectionButton item={ item} isLoggedIn={props.isLoggedIn} comingFromDisplayUserList={props.comingFromDisplayUserList}/>
+            <AddToCollectionButton username={ props.username} category='books' item={ item} comingFromBookResults/>
             {
                 item.cover_i ?
                     <img src={`https://covers.openlibrary.org/b/id/${item.cover_i}-L.jpg`} width="200" height="300" alt="Book Cover" /> :
                     <p className="movie-poster font-size-extra-large">No Image Available</p>
             }
             <figcaption className="item-figcaption margin-top-small">
-                {/*{*/}
-                {/*    props.comingFromDisplayUserList && <IsFavAndIsWatched id={item.id} selectedOption='books'/>*/}
-
-                {/*}*/}
-                <Rating rating={item.ratings_average} for='book' />
+                <Rating rating={item.ratings_average} comingFromBookResults />
                 <div className="margin-top-small item-title">
                     {item.title} ({item.first_publish_year})
                 </div>

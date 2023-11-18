@@ -13,7 +13,7 @@ html {
 
 body {
     color: #fff;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     line-height: 1.3;
 }
 
@@ -89,7 +89,7 @@ button{
     overflow: hidden;
 }
 
-.diabled-button {
+.disabled-button {
     cursor: unset;
     background-color: rgba(0,0,0,0.5);
     color: gray;

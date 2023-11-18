@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
-import { loggedInUserInfo, logout } from '../../helpers/helpers';
+import { logout } from '../../helpers/logout';
 import NavigationBar from './NavigationBar';
 import './Header.css';
 
 function Header(props) {
+    const username = props.username;
+
     const logoutBtnClickHandler = () => {
         const response = logout();
+
         response.then((res) => {
             if (res.status === 200) {
-                props.logoutBtnClicked();
+                props.logoutBtnClicked(res.message);
             }
             else {
                 console.log(res);
@@ -22,14 +25,13 @@ function Header(props) {
                 <Link to="/" className="link font-size-extra-large color-primary">My Compilist</Link>
             </div>
             {
-                props.isLoggedIn ?
-                    <div className="username margin-top-medium">{`Hello ${loggedInUserInfo.username}!`}</div> :
-                    ''
+                username &&
+                <div className="username margin-top-medium">{`Hello ${username}!`}</div>
             }
             <NavigationBar requestComingFrom='header'/>
             <div className="login-link">
                 {
-                    props.isLoggedIn ?
+                    username ?
                         <button className="link logout-button font-size-medium" onClick={ logoutBtnClickHandler}>
                             <img src={process.env.PUBLIC_URL + './assets/logout.svg'} alt="Clickable login icon" width="24" />
                             <span>Logout</span> 

@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
-import Loader from '../../loader/Loader';
+import Loader from '../loader/Loader';
 import { useNavigate } from 'react-router-dom';
-import { submitForm } from '../../../helpers/helpers';
+import { submitSearchBoxForm } from '../../helpers/submitSearchBoxForm';
 import './SearchBox.css';
 
 function SearchBox(props) {
     const userInput = useRef();
     const [errorMessage, setErrorMessage] = useState('');
-    const [selectedOption, setSelectedOption] = useState('movie');
+    const [category, setCategory] = useState('movies');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ function SearchBox(props) {
     }
 
     const changeHandler = (event) => {
-        setSelectedOption(event.target.value);
+        setCategory(event.target.value);
     }
 
     const submitHandler = (event) => {
@@ -28,20 +28,16 @@ function SearchBox(props) {
         let query = userInput.current.value.trim();
 
         if (query) {
-            const response = submitForm({
-                requestComingFrom: 'searchBox',
-                query: query,
-                selectedOption: selectedOption
-            });
+            const response = submitSearchBoxForm(query, category);
 
             response
                 .then((res) => {
-                    if (res === 'success') {
-                        props.searchResultsUpdated();
+                    if (res.status === 200) {
+                        props.searchResultsUpdated(category);
                         navigate('/searchresults');
                     }
                     else {
-                        setErrorMessage(res);
+                        setErrorMessage(res.message);
                     }
                     setIsLoading(false);
                     document.body.classList.remove('disable-scroll');
@@ -78,11 +74,11 @@ function SearchBox(props) {
                 </div>
                 <div className="searchBox-form-category-options margin-top-extra-small font-size-small">
                     <div>
-                        <input type="radio" id="movies" name="searchBox-form-category-option" value="movie" defaultChecked onChange={changeHandler} />
+                        <input type="radio" id="movies" name="searchBox-form-category-option" value="movies" defaultChecked onChange={changeHandler} />
                         <label htmlFor="movies">Movies</label>
                     </div>
                     <div>
-                        <input type="radio" id="shows" name="searchBox-form-category-option" value="tv" onChange={changeHandler} />
+                        <input type="radio" id="shows" name="searchBox-form-category-option" value="shows" onChange={changeHandler} />
                         <label htmlFor="shows">Shows</label>
                     </div>
                     <div>

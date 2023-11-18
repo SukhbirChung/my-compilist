@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { submitForm, validateForm } from '../helpers/helpers';
+import { validateMyAccountForm, submitMyAccountForm } from '../helpers/submitMyAccountForm';
 import Loader from './loader/Loader';
 import './MyAccount.css';
 
@@ -44,16 +44,17 @@ function MyAccount(props) {
     const formSubmitHandler = (event) => {
         event.preventDefault();
 
-        const isThereSpace = validateForm(userCredentials);
+        const isThereSpace = validateMyAccountForm(userCredentials);
         if (isThereSpace) {
             setErrorMessage(isThereSpace);
         }
         else {
             setIsLoading(true);
-            submitForm(userCredentials)
+
+            submitMyAccountForm(userCredentials)
                 .then(res => {
                     if (res.status === 200) {
-                        props.response(res.data);
+                        props.response(res.message, userCredentials.username[0].toUpperCase() + userCredentials.username.slice(1));
                         navigate('/');
 
                         setUserCredentials({
@@ -65,7 +66,7 @@ function MyAccount(props) {
                         setErrorMessage(false);
                         setFormSubmissionResponse('');
                     } else {
-                        setFormSubmissionResponse(res.data);
+                        setFormSubmissionResponse(res.message);
                     }
 
                     setIsLoading(false);

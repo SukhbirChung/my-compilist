@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import SearchBox from './searchBox/SearchBox';
-import SearchResults from './searchBox/SearchResults';
-import MainContent from './mainContent/MainContent';
+import SearchBox from '../searchBox/SearchBox';
+import SearchResults from '../searchBox/SearchResults';
+import MainContent from './MainContent';
 
 function Main(props) {
-    const [key, setKey] = useState(0);
+    const [searchCategory, setSearchCategory] = useState('');
     const params = useParams();
     const category = params.category;
 
-    const searchResultsUpdated = () => {
-        setKey((currentState) => {
-            return currentState + 1;
-        })
-    }
-
     return (
         <main className="margin-top-large">
-            <SearchBox searchResultsUpdated={searchResultsUpdated}/>
+            <SearchBox searchResultsUpdated={(category) => setSearchCategory(category)} />
             {
                 props.showSearchResults ?
-                    <SearchResults isLoggedIn={props.isLoggedIn}/> :
-                    <MainContent isLoggedIn={props.isLoggedIn} homepage={props.homepage} category={ category}/>          }
+                    <SearchResults category={searchCategory} username={props.username} /> :
+                    <MainContent username={props.username} homepage={props.homepage} category={category} />          }
         </main>
     );
 }

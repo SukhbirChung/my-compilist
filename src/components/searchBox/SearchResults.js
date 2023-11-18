@@ -1,23 +1,23 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { selectedOption, searchResults } from '../../../helpers/helpers';
+import { searchResults } from '../../helpers/submitSearchBoxForm';
 import DisplayResults from '../displayResults/DisplayResults';
 import './SearchResults.css';
 
 function SearchResults(props) {
+    const category = props.category;
+
     while (searchResults.length > 10) {
         searchResults.pop();
     }
 
     searchResults.sort((a, b) => {
-        if (selectedOption === 'movie') {
+        if (category === 'movies') {
             return (new Date(b.release_date)).getFullYear() - (new Date(a.release_date)).getFullYear();
-        }
-        else if (selectedOption === 'tv' || selectedOption === 'documentaries') {
-            return (new Date(b.first_air_date)).getFullYear() - (new Date(a.first_air_date)).getFullYear();
-        }
-        else if (selectedOption === 'books') {
+        } else if (category === 'books') {
             return a.first_publish_year - b.first_publish_year;
+        } else {
+            return (new Date(b.first_air_date)).getFullYear() - (new Date(a.first_air_date)).getFullYear();
         }
     });
 
@@ -28,7 +28,7 @@ function SearchResults(props) {
                 {
                     searchResults.length === 0 ?
                         <p className="font-size-medium">No results found!</p> :
-                        <DisplayResults selectedOption={selectedOption} requestFromSearchResults isLoggedIn={props.isLoggedIn}/>
+                        <DisplayResults username={props.username} category={category} comingFromSearchResults />
                 }
             </div>
             <div className="close-search-results-container margin-top-small">

@@ -4,29 +4,21 @@ import AddToCollectionButton from './AddToCollectionButton';
 import Rating from './Rating';
 
 function MovieResults(props) {
-    let selectedOption = props.selectedOption;
+    let category = props.category;
     const item = props.item;
-    
-    if (selectedOption === 'movies') {
-        selectedOption = 'movie';
-    }
 
-    const name = selectedOption === 'movie' ? item.title : item.name;
-    const year = selectedOption === 'movie' ? item.release_date.slice(0, 4) : item.first_air_date.slice(0, 4); 
+    const name = category === 'movies' ? item.title : item.name;
+    const year = category === 'movies' ? item.release_date.slice(0, 4) : item.first_air_date.slice(0, 4); 
 
     return (
         <figure>
-            <AddToCollectionButton category={selectedOption} id={item.id} isLoggedIn={props.isLoggedIn} comingFromDisplayUserList={props.comingFromDisplayUserList}/>
+            <AddToCollectionButton username={props.username} category={category} item={ item}/>
             {
                 item.poster_path ?
                     <img src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} width="200" height="300" alt="Movie poster" /> :
                     <p className="movie-poster font-size-extra-large">No Image Available</p>
             }
             <figcaption className="item-figcaption margin-top-small">
-                {/*{*/}
-                {/*    props.comingFromDisplayUserList && <IsFavAndIsWatched comingFromMovieResults id={item.id} selectedOption={props.selectedOption} />*/}
-
-                {/*}*/}
                 <Rating rating={item.vote_average} />
                 <div className="margin-top-small item-title">
                     {name} ({year})
