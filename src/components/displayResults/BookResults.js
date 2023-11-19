@@ -5,6 +5,7 @@ import Rating from './Rating';
 
 function BookResults(props) {
     const item = props.item;
+    let title = item.title;
     
     return (
         <figure>
@@ -17,7 +18,7 @@ function BookResults(props) {
             <figcaption className="item-figcaption margin-top-small">
                 <Rating rating={item.ratings_average} comingFromBookResults />
                 <div className="margin-top-small item-title">
-                    {item.title} ({item.first_publish_year})
+                    {title} ({item.first_publish_year})
                 </div>
                 <div className="item-external-links-container margin-top-medium">
                     <Link className="link moving-color-button" to={`https://www.goodreads.com/search?query=${item.title}`} target="_blank">

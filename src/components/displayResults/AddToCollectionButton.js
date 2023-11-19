@@ -50,7 +50,7 @@ function AddToCollectionButton(props) {
             <button className={`add-to-collection-button font-size-large${btnDisabled ? ' disabled-button' : ''}`}
                 disabled={btnDisabled}
                 onClick={clickHandler}
-                onMouseEnter={() => setHoverMessage('Add to your Collection')}
+                onMouseEnter={() => setHoverMessage('Add to Collection')}
                 onMouseLeave={() => setHoverMessage('')}>
                 {
                     btnDisabled ? '\u2713' : '+'

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import RemoveFromCollectionButton from './RemoveFromCollectionButton';
 import Rating from '../displayResults/Rating';
 
 function DisplayList(props) {
@@ -7,6 +8,7 @@ function DisplayList(props) {
 
     return (
         <figure>
+            <RemoveFromCollectionButton category={category} id={item.id} removeItem={props.removeItem} />
             {
                 category === 'books' &&
                     (item.cover ?

@@ -8,7 +8,7 @@ figure {
     flex-direction:column;
 }
 
-.add-to-collection-button {
+.add-to-collection-button, .remove-from-collection-button {
     position: absolute;
     border: none;
     padding: 1rem;
@@ -69,6 +69,10 @@ figure {
 
 .item-title {
     flex: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
 }
 
 .rating {
