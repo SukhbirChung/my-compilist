@@ -3,7 +3,7 @@ import axios from 'axios';
 async function addToCollection(category, item) {
     const options = {
         method: 'POST',
-        url: 'http://localhost:3000/collection/addToCollection',
+        url: process.env.REACT_APP_ACCOUNT_URL + '/collection/addToCollection',
         withCredentials: true,
         data: {category, item}
     }

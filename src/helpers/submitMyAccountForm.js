@@ -13,8 +13,8 @@ async function submitMyAccountForm(userCredentials) {
     const options = {
         method: 'POST',
         url: userCredentials.email ?
-            'http://localhost:3000/' + 'signup' :
-            'http://localhost:3000/' + 'login',
+            process.env.REACT_APP_ACCOUNT_URL + '/signup' :
+            process.env.REACT_APP_ACCOUNT_URL + '/login',
         data: userCredentials,
         withCredentials: true
     };

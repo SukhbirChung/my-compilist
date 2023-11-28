@@ -3,7 +3,7 @@ import axios from 'axios';
 async function logout() {
     const options = {
         method: 'POST',
-        url: 'http://localhost:3000/logout',
+        url: process.env.REACT_APP_ACCOUNT_URL + '/logout',
         withCredentials: true
     }
 

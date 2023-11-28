@@ -3,7 +3,7 @@ import axios from 'axios';
 async function checkIsLoggedIn() {
     const options = {
         method: 'POST',
-        url: 'http://localhost:3000',
+        url: process.env.REACT_APP_ACCOUNT_URL,
         withCredentials: true
     }
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 async function getUserList(category) {
     const options = {
         method: 'GET',
-        url: 'http://localhost:3000/collection/getUserCollection',        
+        url: process.env.REACT_APP_ACCOUNT_URL + '/collection/getUserCollection',        
         withCredentials: true,
         params: {
             category: category.toLowerCase()

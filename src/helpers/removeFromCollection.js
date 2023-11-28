@@ -3,7 +3,7 @@ import axios from 'axios';
 async function removeFromCollection(category, id) {
     const options = {
         method: 'POST',
-        url: 'http://localhost:3000/collection/removeFromCollection',
+        url: process.env.REACT_APP_ACCOUNT_URL + '/collection/removeFromCollection',
         withCredentials: true,
         data: {
             category: category,

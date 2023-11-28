@@ -17,14 +17,22 @@ header {
     align-items: center;
 }
 
-.logout-button{
+.logout-button {
     background: transparent;
     border: none;
 }
 
-.login-link img {
-    margin-right: 0.25rem;
+.login-link .link:hover{
+    color: var(--primary-color);
 }
+
+    .login-link .link:hover #Login path {
+        stroke: var(--primary-color);
+    }
+
+    .login-link .link:hover #Logout {
+        fill: var(--primary-color);
+    }
 
 @media(min-width: 800px) {
     header {

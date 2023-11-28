@@ -1,5 +1,6 @@
 {
   "name": "my-compilist",
+  "homepage": "https://mycompilist.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
