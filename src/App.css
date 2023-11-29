@@ -28,6 +28,7 @@ button{
 }
 
 #root {
+    min-height: 100vh;
     padding: 1rem 1rem 0;
     background-color: rgba(0,0,0,0.8);
 }
@@ -106,6 +107,17 @@ button{
 .hide-scrollbar::-webkit-scrollbar {
     background: transparent;
     width: 0px;
+}
+
+@media(max-width: 799px){
+    #root{
+        display: flex;
+        flex-direction: column;
+    }
+
+    main{
+        flex: 1;
+    }
 }
 
 @media(min-width: 800px){

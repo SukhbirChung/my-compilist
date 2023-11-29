@@ -38,6 +38,7 @@
 .main-navigation-bar .navbar-items {
     display: flex;
     overflow-x: scroll;
+    scrollbar-width: none;
 }
 
 .main-navigation-bar .navbar-item {

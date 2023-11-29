@@ -5,7 +5,7 @@ import './NavigationBar.css';
 function NavigationBar(props) {
     return (
         <div className={props.requestComingFrom === 'header' ? 'header-navigation-bar' : 'main-navigation-bar'}>
-            <h1 className="font-size-large margin-top-extra-large">Categories</h1>
+            <h1 className="font-size-large margin-top-extra-large">My Collection</h1>
             <nav className="navbar margin-top-small">
                 <ul className="navbar-items hide-scrollbar">
                     {

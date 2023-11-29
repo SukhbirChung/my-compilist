@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { addToCollection } from '../../helpers/addToCollection';
 import FlashMessage from '../flashMessage/FlashMessage';
+import Loader from '../loader/Loader';
 
 function AddToCollectionButton(props) {
     let item = props.item;
@@ -8,9 +9,12 @@ function AddToCollectionButton(props) {
     const [btnDisabled, setBtnDisabled] = useState(false);
     const [hoverMessage, setHoverMessage] = useState('');
     const [flashMessage, setFlashMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const clickHandler = () => {
         if (props.username) {
+            setIsLoading(true);
+
             let response;
 
             if (props.comingFromBookResults) {
@@ -34,10 +38,13 @@ function AddToCollectionButton(props) {
             response.then((res) => {
                 if (res.status === 200 || res.status === 201) {
                     setBtnDisabled(true);
-                    setFlashMessage({ success: res.data.message});
+                    setFlashMessage({ success: res.data.message });
+
+                    setIsLoading(false);
                 }
                 else {
                     setFlashMessage({ error: "Something went wrong." });
+                    setIsLoading(false);
                 }                
             }).catch(err => console.log(err));
         } else {
@@ -47,6 +54,9 @@ function AddToCollectionButton(props) {
 
     return (
         <Fragment>
+            {
+                isLoading && <Loader />
+            }
             <button className={`add-to-collection-button font-size-large${btnDisabled ? ' disabled-button' : ''}`}
                 disabled={btnDisabled}
                 onClick={clickHandler}
