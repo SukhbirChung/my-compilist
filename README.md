@@ -7,7 +7,7 @@ My Compilist is designed to explore the latest and most popular movies, shows, a
 
 But that's not all - users can personalize their experience by creating an account. Login functionality is provided to curate personalized lists, categorizing movies users already enjoyed and those on their must- watch list.
 
-This React app makes the use of "TMDB" and "Open Library" APIs to access data on movies, shows, and books. User's personalized data is stored in a Mongoose database which is handled thorugh a Node.js app (mongooseConnections repository in my list of repos) on the backend.
+This React app makes the use of "TMDB" and "Open Library" APIs to access data on movies, shows, and books. User's personalized data is stored in a Mongoose database which is handled thorugh a **Node.js app (mongooseConnections repository in my list of repos) on the backend**.
 
 The web app can be visted at [https://mycompilist.com/](https://mycompilist.com/)
 
