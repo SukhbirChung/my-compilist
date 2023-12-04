@@ -17,4 +17,4 @@ The web app can be visted at [https://mycompilist.com/](https://mycompilist.com/
 * Saving personalized lists in a Mongoose database
 * Adding and removing items from the user's list of favorite items
 
-![app homepage image](public/assets/myCompilist.png)
+![app homepage image](public/assets/myCompilist.PNG)
