@@ -25,7 +25,16 @@ function AddToCollectionButton(props) {
                     title: item.title,
                     release_or_publish_year: item.first_publish_year
                 });
-            } else {
+            }
+            else if (props.comingFromNYTBookResults) {
+                response = addToCollection('nytbooks', {
+                    id: item.title,
+                    book_image: item.book_image,
+                    title: item.title,
+                    author: item.author
+                });
+            }
+            else {
                 response = addToCollection(props.category, {
                     id: item.id,
                     cover: item.poster_path,

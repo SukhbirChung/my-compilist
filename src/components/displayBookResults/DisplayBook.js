@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import AddToCollectionButton from '../displayResults/AddToCollectionButton';
+import RemoveFromCollectionButton from '../userCompilistList/RemoveFromCollectionButton';
 //import IsFavAndIsWatched from './IsFavAndIsWatched';
 //import Rating from './Rating';
 
@@ -12,7 +13,11 @@ function DisplayBook(props) {
 
     return (
         <figure>
-            <AddToCollectionButton username={props.username} category='books' item={book} comingFromBookResults />
+            {
+                props.removeItem ?
+                    <RemoveFromCollectionButton category={'nytbooks'} id={book.id} removeItem={props.removeItem} /> :
+                    <AddToCollectionButton username={props.username} category='books' item={book} comingFromNYTBookResults />
+            }            
             <img src={`${book.book_image}`} width="200" height="300" alt="Book Cover" />
             <figcaption className="item-figcaption margin-top-small">
                 <div className="margin-top-small item-title">

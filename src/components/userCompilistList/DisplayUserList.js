@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { getUserList } from '../../helpers/getUserList';
 import Loader from '../loader/Loader';
 import DisplayList from './DisplayList';
+import DisplayBook from '../displayBookResults/DisplayBook';
 import FlashMessage from '../flashMessage/FlashMessage';
 import '../displayResults/DisplayResults.css';
 
@@ -58,6 +59,9 @@ function DisplayUserList(props) {
                     {
                         userList.map((item) => {
                             duplicateArray.pop();
+                            if (item.author) {
+                                return <DisplayBook key={item.id} book={item} username={props.username} removeItem={() => removeItem(item.id)} />
+                            }
                             return <DisplayList key={item.id} category={category} item={item} username={props.username} removeItem={()=>removeItem(item.id)} />
                         })
                     }
