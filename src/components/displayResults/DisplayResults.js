@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { searchResults } from '../../helpers/submitSearchBoxForm';
 import MovieResults from '../displayResults/MovieResults';
+import DisplayBookResults from '../displayBookResults/DisplayBookResults';
 import BookResults from '../displayResults/BookResults';
 import './DisplayResults.css';
 
@@ -40,7 +41,7 @@ function PopularItems(props) {
             <div className="popular-this-week hide-scrollbar">
                 {
                     popularItems.books.map((item) => {
-                        return <BookResults key={item.key} item={item} username={props.username} />
+                        return <DisplayBookResults key={item.list_id} list={item} username={props.username} />
                     })
                 }
             </div>

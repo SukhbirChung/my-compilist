@@ -22,7 +22,9 @@ function DisplayList(props) {
                     <p className="movie-poster font-size-extra-large">No Image Available</p>)
             }            
             <figcaption className="item-figcaption margin-top-small">
-                <Rating rating={item.rating} comingFromBookResults/>
+                {
+                    category === 'books' ? <Rating rating={item.rating} comingFromBookResults /> : <Rating rating={item.rating} />
+                }                
                 <div className="margin-top-small item-title">
                     {item.title} ({item.release_or_publish_year})
                 </div>

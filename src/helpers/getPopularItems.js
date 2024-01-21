@@ -47,17 +47,11 @@ async function getPopularItems() {
 
     const bookOptions = {
         method: 'GET',
-        url: 'https://openlibrary.org/search.json?q=first_publish_year=[2023+TO+2024]',
-        params: {
-            limit: 20,
-            language: 'eng',
-            sort: 'new'
-        }
+        url: 'https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=' + process.env.REACT_APP_NYT_KEY,
     }
-
     try {
         const response = await axios.request(bookOptions);
-        popularItems.books = response.data.docs;
+        popularItems.books = response.data.results.lists;
     }
     catch (err) {
         let errorMessage;

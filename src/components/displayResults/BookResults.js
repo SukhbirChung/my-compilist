@@ -6,10 +6,10 @@ import Rating from './Rating';
 function BookResults(props) {
     const item = props.item;
     let title = item.title;
-    
+
     return (
         <figure>
-            <AddToCollectionButton username={ props.username} category='books' item={ item} comingFromBookResults/>
+            <AddToCollectionButton username={props.username} category='books' item={item} comingFromBookResults />
             {
                 item.cover_i ?
                     <img src={`https://covers.openlibrary.org/b/id/${item.cover_i}-L.jpg`} width="200" height="300" alt="Book Cover" /> :
@@ -18,7 +18,8 @@ function BookResults(props) {
             <figcaption className="item-figcaption margin-top-small">
                 <Rating rating={item.ratings_average} comingFromBookResults />
                 <div className="margin-top-small item-title">
-                    {title} ({item.first_publish_year})
+                    {title} {/*({item.first_publish_year})*/}<br />
+                    <span className="font-size-extra-small">Author: {item.author_name[0]}</span>
                 </div>
                 <div className="item-external-links-container margin-top-medium">
                     <Link className="link moving-color-button" to={`https://www.goodreads.com/search?query=${item.title}`} target="_blank">

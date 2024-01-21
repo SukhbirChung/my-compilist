@@ -29,7 +29,7 @@ async function submitSearchBoxForm(query, category) {
         const response = await axios.request(options);
         searchResults = category === 'books' ?
             response.data.docs : response.data.results;
-
+        console.log(response.data.docs);
         return response;
     }
     catch (err) {

@@ -7,15 +7,17 @@ import './SearchResults.css';
 function SearchResults(props) {
     const category = props.category;
 
-    while (searchResults.length > 10) {
-        searchResults.pop();
+    if (category !== 'books') {
+        while (searchResults.length > 10) {
+            searchResults.pop();
+        }
     }
 
     searchResults.sort((a, b) => {
         if (category === 'movies') {
             return (new Date(b.release_date)).getFullYear() - (new Date(a.release_date)).getFullYear();
         } else if (category === 'books') {
-            return a.first_publish_year - b.first_publish_year;
+            return b.first_publish_year - a.first_publish_year;
         } else {
             return (new Date(b.first_air_date)).getFullYear() - (new Date(a.first_air_date)).getFullYear();
         }
