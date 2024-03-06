@@ -7,12 +7,6 @@ import './SearchResults.css';
 function SearchResults(props) {
     const category = props.category;
 
-    if (category !== 'books') {
-        while (searchResults.length > 10) {
-            searchResults.pop();
-        }
-    }
-
     searchResults.sort((a, b) => {
         if (category === 'movies') {
             return (new Date(b.release_date)).getFullYear() - (new Date(a.release_date)).getFullYear();

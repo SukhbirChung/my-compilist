@@ -4,15 +4,11 @@ header {
     align-items: center;
 }
 
-.logo {
-    font-family: 'Delicious Handrawn', cursive;
-}
-
-.username{
+.username {
     display: none;
 }
 
-.login-link .link{
+.login-link .link {
     display: flex;
     align-items: center;
 }
@@ -22,28 +18,32 @@ header {
     border: none;
 }
 
-.login-link .link:hover{
+.login-link .link:hover {
     color: var(--primary-color);
 }
 
-    .login-link .link:hover #Login path {
-        stroke: var(--primary-color);
-    }
+.login-link .link:hover #Login path {
+    stroke: var(--primary-color);
+}
 
-    .login-link .link:hover #Logout {
-        fill: var(--primary-color);
-    }
+.login-link .link:hover #Logout {
+    fill: var(--primary-color);
+}
 
 @media(min-width: 800px) {
     header {
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: start;
         padding: 2rem 1rem;
-        background-color: rgb(56,56,56);
+        background-color: rgb(56, 56, 56);
     }
 
-    .username{
+    .username {
         display: initial;
+    }
+
+    .login-link {
+        margin-top: auto;
     }
 }

@@ -59,8 +59,8 @@ function DisplayUserList(props) {
                     {
                         userList.map((item) => {
                             duplicateArray.pop();
-                            if (item.author) {
-                                return <DisplayBook key={item.id} book={item} username={props.username} removeItem={() => removeItem(item.id)} />
+                            if (category === 'Books') {
+                                return <DisplayBook key={item.id} book={item} username={props.username} removeItem={() => removeItem(item.id)} comingFromUserList />
                             }
                             return <DisplayList key={item.id} category={category} item={item} username={props.username} removeItem={()=>removeItem(item.id)} />
                         })

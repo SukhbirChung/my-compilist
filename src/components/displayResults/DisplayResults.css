@@ -1,18 +1,46 @@
+.popular-this-week-container>div {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.previous-button,
+.next-button {
+    position: absolute;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    z-index: 1;
+}
+
+.next-button {
+    right: 0;
+}
+
+.popular-this-week {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
 figure {
     position: relative;
     width: 200px;
     margin: 1rem;
     border-radius: 0 0 0.75rem 0.75rem;
-    background-color: rgb(66,66,66);
+    background-color: rgb(66, 66, 66);
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
 }
 
-.add-to-collection-button, .remove-from-collection-button {
+.add-to-collection-button,
+.remove-from-collection-button {
     position: absolute;
     border: none;
     padding: 1rem;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     color: #fff;
 }
 
@@ -22,7 +50,7 @@ figure {
     top: 60px;
     border-radius: 0.5rem;
     padding: 0.5rem;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .movie-poster {
@@ -35,8 +63,11 @@ figure {
 }
 
 .item-figcaption {
-    padding: 0 0.5rem 1.25rem;
+    padding: 0 0.5rem 0.5rem;
     flex: 1;
+}
+
+.book-figcaption {
     display: flex;
     flex-direction: column;
 }
@@ -46,26 +77,28 @@ figure {
     justify-content: space-between;
 }
 
-    .isFavAndIsWatched-container button {
-        border: none;
-        padding: 0;
-        background: transparent;
-        color: #fff;
-        display: flex;
-        align-items: center;
-    }
+.isFavAndIsWatched-container button {
+    border: none;
+    padding: 0;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
 
-    .isFavAndIsWatched-container svg, .isFavAndIsWatched-container input{
-        margin-right: 0.25rem;
-    }
+.isFavAndIsWatched-container svg,
+.isFavAndIsWatched-container input {
+    margin-right: 0.25rem;
+}
 
-        .isFavAndIsWatched-container input, .isFavAndIsWatched-container label{
-            cursor: pointer;
-        }
+.isFavAndIsWatched-container input,
+.isFavAndIsWatched-container label {
+    cursor: pointer;
+}
 
-    .isFavAndIsWatched-container input {
-        accent-color: var(--primary-color);
-    }
+.isFavAndIsWatched-container input {
+    accent-color: var(--primary-color);
+}
 
 .item-title {
     flex: 1;
@@ -75,32 +108,40 @@ figure {
     overflow: hidden;
 }
 
+.rating-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
 .rating {
     display: flex;
     align-items: end;
 }
 
-    .rating img {
-        margin-right: 0.25rem;
-    }
-
-.item-external-links-container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+.imdb-link {
+    border-radius: 0.25rem;
+    padding: 0 0.15rem;
+    background-color: #f5c518;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 0;
 }
 
-    .moving-color-button {
-        border: 1px solid var(--primary-color);
-        border-radius: 0.5rem;
-        padding: 0.25rem 0.5rem;
-        color: #fff;
-        background: linear-gradient(to right, transparent 50%, var(--primary-color) 50%);
-        background-size: 200%;
-        background-position: right;
-        transition: .35s ease-out;
-    }
+.moving-color-button {
+    display: inline-block;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.45rem;
+    line-height: 1;
+    background: linear-gradient(to right, transparent 50%, var(--primary-color) 50%);
+    background-size: 200%;
+    background-position: right;
+    transition: .35s ease-out;
+}
 
-    .moving-color-button:hover {
-        background-position: left;
-    }
+.moving-color-button:hover {
+    background-position: left;
+}

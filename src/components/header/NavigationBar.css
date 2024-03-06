@@ -10,13 +10,14 @@
 
 .header-navigation-bar {
     display: none;
-    flex: 1;
 }
 
     .header-navigation-bar .navbar-item:hover, .header-navigation-bar .navbar-item.active {
         color: var(--primary-color);
     }
 
+        .header-navigation-bar .navbar-item:hover #Home,
+        .header-navigation-bar .navbar-item.active #Home,
         .header-navigation-bar .navbar-item:hover #Movies,
         .header-navigation-bar .navbar-item:hover #Books,
         .header-navigation-bar .navbar-item.active #Movies,
@@ -27,12 +28,6 @@
         .header-navigation-bar .navbar-item:hover #Shows path,
         .header-navigation-bar .navbar-item.active #Shows path {
             stroke: var(--primary-color);
-        }
-
-        .header-navigation-bar .navbar-item:hover #Documentaries,
-        .header-navigation-bar .navbar-item.active #Documentaries {
-            stroke: var(--primary-color);
-            fill: var(--primary-color);
         }
 
 .main-navigation-bar .navbar-items {

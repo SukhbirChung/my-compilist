@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Loader from '../loader/Loader';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { submitSearchBoxForm } from '../../helpers/submitSearchBoxForm';
 import './SearchBox.css';
 
@@ -80,10 +80,6 @@ function SearchBox(props) {
                     <div>
                         <input type="radio" id="shows" name="searchBox-form-category-option" value="shows" onChange={changeHandler} />
                         <label htmlFor="shows">Shows</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="documentaries" name="searchBox-form-category-option" value="documentaries" onChange={changeHandler} />
-                        <label htmlFor="documentaries">Documentaries</label>
                     </div>
                     <div>
                         <input type="radio" id="books" name="searchBox-form-category-option" value="books" onChange={changeHandler} />

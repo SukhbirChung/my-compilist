@@ -17,21 +17,14 @@ function AddToCollectionButton(props) {
 
             let response;
 
-            if (props.comingFromBookResults) {
+            if (props.comingFromBooks) {
                 response = addToCollection('books', {
-                    id: item.key,
+                    id: item.key || item.book_uri,
                     cover: item.cover_i,
-                    rating: item.ratings_average ? item.ratings_average.toFixed(1) : 0,
+                    nytCover: item.book_image,
                     title: item.title,
-                    release_or_publish_year: item.first_publish_year
-                });
-            }
-            else if (props.comingFromNYTBookResults) {
-                response = addToCollection('nytbooks', {
-                    id: item.title,
-                    book_image: item.book_image,
-                    title: item.title,
-                    author: item.author
+                    author: item.author || item.author_name[0],
+                    amazon_product_url: item.amazon_product_url
                 });
             }
             else {
@@ -40,7 +33,8 @@ function AddToCollectionButton(props) {
                     cover: item.poster_path,
                     rating: item.vote_average ? item.vote_average.toFixed(1) : 0,
                     title: props.category === 'movies' ? item.title : item.name,
-                    release_or_publish_year: props.category === 'movies' ? item.release_date.slice(0, 4) : item.first_air_date.slice(0, 4)
+                    imdb_id: props.imdb_id,
+                    release_year: props.category === 'movies' ? item.release_date.slice(0, 4) : item.first_air_date.slice(0, 4)
                 });
             }
 

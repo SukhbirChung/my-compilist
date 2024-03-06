@@ -30,6 +30,10 @@ async function submitSearchBoxForm(query, category) {
         searchResults = category === 'books' ?
             response.data.docs : response.data.results;
 
+        while (searchResults.length > 10) {
+            searchResults.pop();
+        }
+
         return response;
     }
     catch (err) {

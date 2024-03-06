@@ -1,11 +1,22 @@
 footer{
     padding-block: 1rem 0.5rem;
+    color: rgb(128, 128, 128);
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
 .link-paptido{
     color: #ffc700;
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+@media(max-width: 455px){
+    .footer-separator{
+        display: none;
+    }
+
+    footer{
+        flex-direction: column;
+        align-items: center;
+    }
 }

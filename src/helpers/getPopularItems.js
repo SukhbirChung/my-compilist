@@ -1,7 +1,10 @@
 import axios from 'axios';
+const popularItems = {};
 
 async function getPopularItems() {
-    const popularItems = {};
+    if (popularItems.movies){
+        return popularItems;
+    }
 
     const movieOptions = {
         method: 'GET',
@@ -14,7 +17,12 @@ async function getPopularItems() {
 
     try {
         const response = await axios.request(movieOptions);
-        popularItems.movies = response.data.results;
+        const movies = response.data.results;
+        movies.sort((a, b) => {
+            return b.vote_average - a.vote_average;
+        });
+
+        popularItems.movies = movies;
     }
     catch (err) {
         let errorMessage;
@@ -35,7 +43,12 @@ async function getPopularItems() {
 
     try {
         const response = await axios.request(tvOptions);
-        popularItems.shows = response.data.results;
+        const shows = response.data.results;
+        shows.sort((a, b) => {
+            return b.vote_average - a.vote_average;
+        });
+
+        popularItems.shows = shows;
     }
     catch (err) {
         let errorMessage;
@@ -51,7 +64,15 @@ async function getPopularItems() {
     }
     try {
         const response = await axios.request(bookOptions);
-        popularItems.books = response.data.results.lists;
+        const bookCategories = response.data.results.lists;
+
+        const map = new Map();
+        bookCategories.map((category) => {
+            category.books.forEach(book => map.set(book['book_uri'], book));
+        });
+
+        const books = Array.from(map.values());
+        popularItems.books = books;
     }
     catch (err) {
         let errorMessage;

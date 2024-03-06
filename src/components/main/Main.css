@@ -26,8 +26,3 @@
     padding: 0.5rem;
     outline: none;
 }
-
-.popular-this-week{
-    display: flex;
-    overflow-x: scroll;
-}

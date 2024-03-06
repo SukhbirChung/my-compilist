@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import SearchBox from '../searchBox/SearchBox';
 import SearchResults from '../searchBox/SearchResults';
 import MainContent from './MainContent';
+import './Main.css';
 
 function Main(props) {
     const [searchCategory, setSearchCategory] = useState('');
@@ -15,7 +16,8 @@ function Main(props) {
             {
                 props.showSearchResults ?
                     <SearchResults category={searchCategory} username={props.username} /> :
-                    <MainContent username={props.username} homepage={props.homepage} category={category} />          }
+                    <MainContent username={props.username} homepage={props.homepage} category={category} />
+            }
         </main>
     );
 }
